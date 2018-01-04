@@ -1,0 +1,20 @@
+Train and test data
+
+
+Model glm 
+training data
+testing data
+
+miss classification error
+
+Accuracy
+ROC
+
+
+
+
+mydata =read.csv(file.choose(), header=T)
+
+myglm <- glm( am ~ mpg +cyl +disp + hp +drat + wt + qsec+ gear +carb , data= mtcars, family = "binomial")
+
+
