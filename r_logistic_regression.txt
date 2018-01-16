@@ -42,3 +42,48 @@ roc <- performance ( pred , 'tpr' , 'fpr' )
 plot(roc)
 abline(a=0, b=1)
 
+
+
+
+AUC 
+
+auc <- performance(pred , 'auc')
+auc <-unlist(slot(auc ,"y.values" ))
+
+Accuracy vs cutoff
+
+pred <- predict(mymodel , binary , type ='prob')
+hist(pred)
+pred <- prediction( pred , train$admit)
+eval <- performance( pred, 'acc')
+plot( eval)
+abline(h=.7 , v=.5)
+
+
+acc_tab <- cbind(  slot(eval ,"y.values" )[[1]], slot(eval ,"y.values" )[[1]])
+or 
+cbind(unlist(slot(eval ,"y.values" )), unlist(slot(eval ,"x.values")))
+
+max<- which.max(slot(eval ,"y.values" )[[1]])
+acc<- slot(eval ,"y.values" )[[1]][max]
+cut <- slot(eval ,"x.values" )[[1]][max]
+cbind (acc, cut)
+
+## precision/recall curve (x-axis: recall, y-axis: precision)
+perf1 <- performance(pred, "prec", "rec")
+plot(perf1)
+
+## sensitivity/specificity curve (x-axis: specificity,
+## y-axis: sensitivity)  ----same as above
+perf1 <- performance(pred, "sens", "spec")
+plot(perf1)
+
+Stratified split
+
+stratified(mydata, rank, .3, seed = 1000)
+
+
+
+
+
+

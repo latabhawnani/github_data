@@ -1,0 +1,26 @@
+Features and lable
+
+Input/ independent : Features
+Output / Dependent : Lable
+
+
+Decision tree
+
+
+
+type
+Classification Tree
+
+output is finite set of values / discrete 
+
+regression tree
+
+output is continious
+
+Cons : same change in data can generate different tree
+
+Naive Bayes 
+
+comes handy since you can train it quickly.
+You can use it when you have limited resources in terms of CPU and Memory.
+It is usually used for Real-time predictions, Multi-class Predictions, Text classification, Spam filtering, and Sentiment Analysis
