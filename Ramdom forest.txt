@@ -1,0 +1,28 @@
+Ramdom forest
+
+str(data)
+
+train test
+
+library(randomForest
+seed(222)
+rf <- randomForest(NSP~. , data= train )
+print(rf)
+
+attributes(rf)
+
+rf$confusion
+
+Library(caret)
+
+perd <-predict(rf , train )
+
+condusionMatrix(perd , train$NSP)
+
+
+error rate
+
+plot(rf)
+
+tuneRF(train[,-22] , train[,22] , stepFactor =1 , plot= TRUE, ntreeTry=300 , trace=TRUE , improve=.05)
+

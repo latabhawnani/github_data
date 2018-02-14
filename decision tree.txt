@@ -1,0 +1,44 @@
+
+library(ISLR)
+libaray(tree)
+
+attached(Carseats)
+
+range(Sales)
+
+high <- ifelse(Sales >==8 , "Yes" ,"No")
+Carseats = data.frame(Carseats, High)
+
+set.seed(2)
+
+train <- sample(1; nrow(Carseats) , nrow(Carseats)/2)
+test =-train 
+
+train_data <- Carseats[train , ]
+test_data <- Carseats[ test , ]
+
+testing_high <- High[test]
+
+tree_modal <- tree( hight~. ,  train_data)
+
+plot(tree_modal)
+text(tree_modal, pretty =0)
+
+
+pred <- predict (tree_modal , testing_data , type='class')
+mean(tree_perd != testing_high )
+
+
+#pruing
+set.seed(233)
+cv_tree = cv.tree(tree_modal , FUN= prune.misclass)
+names(cv_tree)
+
+plot(cv_tree$size ,cv_tree$dev ,type = 'o')
+
+
+after pruning
+
+pruned_modal= prune.misclass(tre_modal , best=9)
+plot(pruned_modal)
+test(pruned_modal , pretty=0)
